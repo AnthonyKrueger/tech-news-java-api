@@ -12,18 +12,13 @@ import java.util.Objects;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "post")
 public class Post {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private String title;
-
     private String postUrl;
-
     @Transient
     private String userName;
-
     @Transient
     private int voteCount;
 
@@ -39,6 +34,7 @@ public class Post {
     @Column(name = "updated_at")
     private Date updatedAt = new Date();
 
+    @OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Comment> comments;
 
     public Post(Integer id, String title, String postUrl, String userName, int voteCount, Integer userId) {
