@@ -37,6 +37,10 @@ public class Post {
     @OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Comment> comments;
 
+    public Post() {
+
+    }
+
     public Post(Integer id, String title, String postUrl, String userName, int voteCount, Integer userId) {
         this.id = id;
         this.title = title;
@@ -50,36 +54,72 @@ public class Post {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getPostUrl() {
         return postUrl;
     }
 
+    public void setPostUrl(String postUrl) {
+        this.postUrl = postUrl;
+    }
+
     public String getUserName() {
         return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public int getVoteCount() {
         return voteCount;
     }
 
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
+
     public Integer getUserId() {
         return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Date getPostedAt() {
         return postedAt;
     }
 
+    public void setPostedAt(Date postedAt) {
+        this.postedAt = postedAt;
+    }
+
     public Date getUpdatedAt() {
         return updatedAt;
     }
 
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     public List<Comment> getComments() {
         return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override
